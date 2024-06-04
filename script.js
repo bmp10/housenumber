@@ -19,3 +19,5 @@ input.oninput = function() {
 
     output.innerText = rem + '\n' + sumofdigits + '\n' + sumsum
 }
+input.style.fontSize = "50px"
+output.style.fontSize = "50px"
