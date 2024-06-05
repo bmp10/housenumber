@@ -17,8 +17,26 @@ function getRatings(val) {
     let sumsum = sum + rem
 
     const concatted = '' + rem + sum + sumsum
-    const score = (concatted.match(/4/g) || []).length ? -1 :
-        (concatted.match(/6|7|8/g) || []).length
+    let score = (concatted.match(/6|7|8/g) || []).length
+
+    rem = rem.toString()
+    sum = sum.toString()
+    sumsum = sumsum.toString()
+
+    if (rem.includes('4')) {
+        if (rem == '46' || rem == '48') score += 1
+        else return [0, 0, 0, -1]
+    }
+
+    if (sum.includes('4')) {
+        if (sum == '46' || sum == '48') score += 1
+        else return [0, 0, 0, -1]
+    }
+
+    if (sumsum.includes('4')) {
+        if (sumsum.includes('46') || sumsum.includes('48')) score += 1
+        else return [0, 0, 0, -1]
+    }
         
 
     return [rem, sum, sumsum, score]
@@ -49,3 +67,12 @@ input.oninput = function() {
 }
 input.style.fontSize = "50px"
 output.style.fontSize = "50px"
+
+/*
+6 7 8 are good
+
+4 is only ok when immediately followed by a 6 or 8 (46 or 48)
+all other 4s are big nonos
+
+168 in the sum sum is a big yes yesyesyesyes
+*/
