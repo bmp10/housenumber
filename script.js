@@ -63,7 +63,7 @@ input.oninput = function() {
         goods[ratings[3] + 1].push([v, ratings[3], [ratings[0], ratings[1], ratings[2]]])
     }
 
-    output.innerText = 'max score: ' + goods[goods.length - 1][0][1] + '\n\n' + rem + '\n' + sum + '\n' + sumsum + '\n' + goods[goods.length - 1].map(x => x[0] + ' _ ' + x[2].join(' ')).join('\n')
+    output.innerText = (val % 80) + '\nmax score: ' + goods[goods.length - 1][0][1] + '\n\n' + rem + '\n' + sum + '\n' + sumsum + '\n' + goods[goods.length - 1].map(x => x[0] + ' _ ' + x[2].join(' ')).join('\n')
 }
 input.style.fontSize = "50px"
 output.style.fontSize = "50px"
